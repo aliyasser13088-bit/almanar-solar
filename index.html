@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +25,6 @@
         }
     </script>
     <style>
-        html { scroll-behavior: smooth; }
         .gradient-bg { background: linear-gradient(135deg, #1C1C1C 0%, #3a3a3a 100%); }
     </style>
 </head>
@@ -33,49 +32,72 @@
 
     <!-- Navbar -->
     <nav class="bg-brand-dark text-white py-4 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 flex justify-between items-center">
+        <div class="container mx-auto px-6 flex justify-between items-center relative">
             <div class="flex items-center gap-3">
-                <img src="logo.jpg" alt="شعار شركة المنار" class="w-20 md:w-24 rounded-full shadow-md border-2 border-brand-orange">
-                <span class="font-bold text-2xl tracking-wide">شركة المنار</span>
+                <img src="logo.jpg" onerror="this.src='https://placehold.co/100x100/F28C28/FFFFFF?text=المنار'" alt="شعار شركة المنار" class="w-16 md:w-20 aspect-square object-cover rounded-full shadow-md border-2 border-brand-orange">
+                <span class="font-bold text-xl md:text-2xl tracking-wide">شركة المنار</span>
             </div>
-            <div class="hidden md:flex space-x-6 space-x-reverse font-semibold">
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-6 font-semibold">
                 <a href="#home" class="hover:text-brand-orange transition">الرئيسية</a>
                 <a href="#features" class="hover:text-brand-orange transition">المميزات</a>
                 <a href="#why-us" class="hover:text-brand-orange transition">لماذا نحن</a>
                 <a href="#faq" class="hover:text-brand-orange transition">الأسئلة الشائعة</a>
             </div>
-            <a href="https://wa.me/8619557922243?text=مرحباً،%20أود%20الاستفسار%20عن%20ثلاجات%20الطاقة%20الشمسية." target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold transition shadow-md">
-                استفسر الآن
-            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/8619557922243?text=مرحباً،%20أود%20الاستفسار%20عن%20ثلاجات%20الطاقة%20الشمسية." target="_blank" class="hidden md:inline-block bg-brand-orange hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold transition shadow-md text-sm md:text-base">
+                    استفسر الآن
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brand-orange focus:outline-none" aria-label="Toggle Menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-brand-dark/95 border-t border-gray-700 shadow-xl z-40 top-full left-0">
+            <div class="flex flex-col px-6 py-6 space-y-4 font-semibold text-center text-lg">
+                <a href="#home" class="mobile-link hover:text-brand-orange transition block">الرئيسية</a>
+                <a href="#features" class="mobile-link hover:text-brand-orange transition block">المميزات</a>
+                <a href="#why-us" class="mobile-link hover:text-brand-orange transition block">لماذا نحن</a>
+                <a href="#faq" class="mobile-link hover:text-brand-orange transition block">الأسئلة الشائعة</a>
+                <a href="https://wa.me/8619557922243?text=مرحباً،%20أود%20الاستفسار%20عن%20ثلاجات%20الطاقة%20الشمسية." target="_blank" class="bg-brand-orange text-white px-6 py-3 rounded-full font-bold inline-block mt-4 mx-auto w-3/4">
+                    استفسر الآن
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="gradient-bg text-white py-20">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <span class="inline-block py-1 px-3 rounded-full bg-brand-orange/20 text-brand-orange font-bold text-sm border border-brand-orange">
+    <section id="home" class="gradient-bg text-white py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center md:text-right">
+                <span class="inline-block py-1 px-4 rounded-full bg-brand-orange/20 text-brand-orange font-bold text-sm border border-brand-orange">
                     الحل الذكي والمستدام ☀️
                 </span>
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
                     لا تدع انقطاع الكهرباء يذيب <span class="text-brand-orange">أرباحك!</span>
                 </h1>
-                <p class="text-lg text-gray-300 leading-relaxed">
+                <p class="text-lg text-gray-300 leading-relaxed max-w-xl mx-auto md:mx-0">
                     استورد أحدث ثلاجات الطاقة الشمسية مباشرة من الصين بأسعار المصنع. الحل الأمثل لأصحاب السوبر ماركت، البقالات، والمشاريع المتنقلة.
                 </p>
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="https://wa.me/8619557922243?text=مرحباً،%20أريد%20طلب%20ثلاجات%20بالطاقة%20الشمسية%20بعد%20رؤية%20العرض%20في%20الصفحة%20الرئيسية." target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition shadow-lg text-lg flex items-center gap-2">
+                <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-4 justify-center md:justify-start">
+                    <a href="https://wa.me/8619557922243?text=مرحباً،%20أريد%20طلب%20ثلاجات%20بالطاقة%20الشمسية%20بعد%20رؤية%20العرض%20في%20الصفحة%20الرئيسية." target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition shadow-lg text-lg flex items-center justify-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                         اطلب الآن
                     </a>
-                    <a href="https://wa.me/8619557922243?text=مرحباً،%20أود%20الحصول%20على%20كتالوج%20ثلاجات%20الطاقة%20الشمسية." target="_blank" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-dark text-white px-8 py-3 rounded-full font-bold transition shadow-lg text-lg">
+                    <a href="https://wa.me/8619557922243?text=مرحباً،%20أود%20الحصول%20على%20كتالوج%20ثلاجات%20الطاقة%20الشمسية." target="_blank" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-dark text-white px-8 py-3 rounded-full font-bold transition shadow-lg text-lg text-center">
                         تحميل الكتالوج
                     </a>
                 </div>
             </div>
-            <div class="relative">
-                <div class="absolute inset-0 bg-brand-orange rounded-3xl transform rotate-3 opacity-50 blur-lg"></div>
-                <img src="solar-fridges.jpg" alt="مجموعة متنوعة من ثلاجات الطاقة الشمسية" class="relative z-10 rounded-3xl shadow-2xl w-full object-cover border-4 border-brand-dark">
+            <div class="relative mt-10 md:mt-0">
+                <div class="absolute inset-0 bg-brand-orange rounded-3xl transform rotate-3 opacity-30 blur-xl"></div>
+                <img src="solar-fridges.jpg" onerror="this.src='https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=800&auto=format&fit=crop'" alt="مجموعة متنوعة من ثلاجات الطاقة الشمسية" class="relative z-10 rounded-3xl shadow-2xl w-full object-cover aspect-video border-4 border-brand-dark">
             </div>
         </div>
     </section>
@@ -118,31 +140,31 @@
     <!-- Why Us Section -->
     <section id="why-us" class="py-20 bg-brand-dark text-white">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 flex justify-center">
-                <img src="shipping.jpg" alt="استيراد وشحن" class="w-48 rounded-2xl shadow-2xl border-4 border-gray-700">
+            <div class="md:w-1/2 flex justify-center w-full">
+                <img src="shipping.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop'" alt="استيراد وشحن" class="w-full max-w-sm rounded-2xl shadow-2xl border-4 border-gray-700 aspect-square object-cover">
             </div>
-            <div class="md:w-1/2 space-y-6">
+            <div class="md:w-1/2 space-y-6 text-center md:text-right">
                 <h2 class="text-3xl md:text-4xl font-bold text-brand-orange">لماذا تختار شركة المنار؟</h2>
                 <p class="text-gray-300 text-lg">
                     نحن لسنا مجرد شركة شحن، بل شريكك الاستراتيجي في الصين. نضع بين يديك خبرة سنوات طويلة في التصدير وتسهيل التجارة.
                 </p>
-                <ul class="space-y-4">
+                <ul class="space-y-4 text-right">
                     <li class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-brand-orange mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <svg class="w-6 h-6 text-brand-orange mt-1 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <div>
                             <h4 class="font-bold text-lg">أسعار المصنع الحقيقية</h4>
                             <p class="text-sm text-gray-400">وصول مباشر للمصانع الصينية بدون وسطاء لضمان أعلى هامش ربح لك.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-brand-orange mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <svg class="w-6 h-6 text-brand-orange mt-1 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <div>
                             <h4 class="font-bold text-lg">توفير قطع الغيار</h4>
                             <p class="text-sm text-gray-400">نضمن لك استمرارية العمل بتوفير جميع القطع الاستهلاكية اللازمة.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-brand-orange mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <svg class="w-6 h-6 text-brand-orange mt-1 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <div>
                             <h4 class="font-bold text-lg">شحن مرن وآمن</h4>
                             <p class="text-sm text-gray-400">نلبي طلبات الكميات البسيطة والتجارية، مع تخليص جمركي موثوق.</p>
@@ -162,19 +184,19 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-brand-dark">ماذا يقول عملاؤنا؟</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white p-8 rounded-2xl shadow-md text-right border-r-4 border-brand-orange">
-                    <div class="text-brand-orange mb-4">
+                    <div class="text-brand-orange mb-4 text-xl tracking-widest">
                         ★★★★★
                     </div>
-                    <p class="text-gray-600 italic mb-4">
+                    <p class="text-gray-600 italic mb-4 leading-relaxed">
                         "انقطاع الكهرباء كان يدمر بضاعتي من الألبان واللحوم يومياً. بعد استيراد ثلاجات الطاقة الشمسية عبر شركة المنار، وفرت الكثير وتوقفت الخسائر تماماً. تعاملهم راقي وشحنهم سريع."
                     </p>
                     <h5 class="font-bold text-brand-dark">- أحمد م. (صاحب سوبر ماركت)</h5>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-md text-right border-r-4 border-brand-orange">
-                    <div class="text-brand-orange mb-4">
+                    <div class="text-brand-orange mb-4 text-xl tracking-widest">
                         ★★★★★
                     </div>
-                    <p class="text-gray-600 italic mb-4">
+                    <p class="text-gray-600 italic mb-4 leading-relaxed">
                         "كمستورد صغير كنت أخشى التعامل المباشر مع الصين، لكن شركة المنار وفرت لي الثلاجات بأسعار المصنع وضمنت لي قطع الغيار. تجربة ممتازة وسأكررها بالتأكيد."
                     </p>
                     <h5 class="font-bold text-brand-dark">- سعيد العتيبي (موزع أجهزة)</h5>
@@ -187,7 +209,7 @@
     <section id="faq" class="py-20 bg-white">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-brand-dark">الأسئلة الشائعة</h2>
-            <div class="space-y-6">
+            <div class="space-y-6 text-right">
                 <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
                     <h3 class="font-bold text-lg text-brand-dark mb-2">هل الثلاجات تعمل ليلاً بدون شمس؟</h3>
                     <p class="text-gray-600">نعم، الثلاجات مزودة ببطاريات تخزين عالية الكفاءة تحفظ الطاقة خلال النهار لضمان استمرار التبريد طوال الليل أو في الأيام الغائمة.</p>
@@ -209,7 +231,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-6">جاهز لتطوير مشروعك وزيادة أرباحك؟</h2>
             <p class="mb-8 text-gray-300 max-w-2xl mx-auto">لا تتردد في التواصل معنا للحصول على الكتالوج الشامل وقائمة الأسعار المحدثة من المصنع مباشرة.</p>
-            <a href="https://wa.me/8619557922243?text=مرحباً،%20أنا%20مهتم%20بتطوير%20مشروعي%20وأريد%20الكتالوج%20وتفاصيل%20أسعار%20ثلاجات%20الطاقة%20الشمسية." target="_blank" class="inline-block bg-brand-orange hover:bg-orange-600 text-white px-10 py-4 rounded-full font-extrabold transition shadow-2xl text-xl animate-bounce">
+            <a href="https://wa.me/8619557922243?text=مرحباً،%20أنا%20مهتم%20بتطوير%20مشروعي%20وأريد%20الكتالوج%20وتفاصيل%20أسعار%20ثلاجات%20الطاقة%20الشمسية." target="_blank" class="inline-block bg-brand-orange hover:bg-orange-600 text-white px-10 py-4 rounded-full font-extrabold transition shadow-2xl text-lg md:text-xl animate-bounce">
                 تواصل معنا عبر واتساب الآن
             </a>
         </div>
@@ -217,37 +239,39 @@
 
     <!-- Footer -->
     <footer class="bg-brand-dark text-gray-400 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
-            <div>
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-10 text-center md:text-right">
+            <div class="flex flex-col items-center md:items-start">
                 <div class="flex items-center gap-3 mb-4">
-                    <img src="logo.jpg" alt="شعار شركة المنار" class="w-24 md:w-32 rounded-full shadow-lg border-2 border-brand-orange">
+                    <img src="logo.jpg" onerror="this.src='https://placehold.co/100x100/F28C28/FFFFFF?text=المنار'" alt="شعار شركة المنار" class="w-20 md:w-24 aspect-square object-cover rounded-full shadow-lg border-2 border-brand-orange">
                     <span class="font-bold text-xl text-white">شركة المنار</span>
                 </div>
-                <p class="text-sm">
+                <p class="text-sm leading-relaxed">
                     بوابتك الموثوقة للتجارة والشحن من الصين إلى الأسواق العربية. تجارة عامة، استيراد، وشحن مرن.
                 </p>
             </div>
+            
             <div>
-                <h4 class="text-white font-bold mb-4">تواصل معنا</h4>
-                <ul class="space-y-2 text-sm">
+                <h4 class="text-white font-bold mb-4 text-lg">تواصل معنا</h4>
+                <ul class="space-y-3 text-sm flex flex-col items-center md:items-start">
                     <li dir="ltr" class="text-right">
                         📞 <a href="https://wa.me/8619557922243?text=مرحباً،%20لدي%20استفسار%20عام%20بخصوص%20ثلاجات%20الطاقة%20الشمسية%20من%20موقعكم." target="_blank" class="hover:text-brand-orange transition">+8619557922243</a>
                     </li>
                     <li>📧 generaltrade@yassermarketing.com</li>
-                    <li>🌐 <a href="https://yassermarketing.com" target="_blank" class="hover:text-brand-orange">yassermarketing.com</a></li>
+                    <li>🌐 <a href="https://yassermarketing.com" target="_blank" class="hover:text-brand-orange transition">yassermarketing.com</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">تابعنا على</h4>
-                <div class="flex space-x-4 space-x-reverse">
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition">
+
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-white font-bold mb-4 text-lg">تابعنا على</h4>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/profile.php?id=61558705768715" target="_blank" aria-label="فيسبوك" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition">
                         <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
                     </a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition">
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="انستغرام" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition">
                         <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path></svg>
                     </a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition">
-                        <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd"></path></svg>
+                    <a href="https://www.youtube.com/channel/UCoYGq_ybv3XlQ1LBI1H4E2w" target="_blank" aria-label="يوتيوب" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition">
+                        <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path fill-rule="evenodd" d="M21.582 6.186a2.694 2.694 0 00-1.894-1.905C18.016 3.82 12 3.82 12 3.82s-6.016 0-7.688.461a2.694 2.694 0 00-1.894 1.905C2 7.868 2 12 2 12s0 4.132.418 5.814a2.694 2.694 0 001.894 1.905C6.016 20.18 12 20.18 12 20.18s6.016 0 7.688-.461a2.694 2.694 0 001.894-1.905C22 16.132 22 12 22 12s0-4.132-.418-5.814zM9.82 15.536V8.464L15.932 12l-6.112 3.536z" clip-rule="evenodd"></path></svg>
                     </a>
                 </div>
             </div>
@@ -256,5 +280,26 @@
             © 2024 شركة المنار للتسويق والشحن. جميع الحقوق محفوظة.
         </div>
     </footer>
+
+    <!-- Script for mobile menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const links = document.querySelectorAll('.mobile-link');
+
+            // Toggle menu open/close
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // Close menu when a link is clicked
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
